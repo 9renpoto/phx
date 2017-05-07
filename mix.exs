@@ -16,7 +16,9 @@ defmodule Ex.Mixfile do
 
   defp deps do
     [
-      {:excoveralls, "~> 0.5.7"}
+      {:excoveralls, "~> 0.5.7"},
+      {:dialyxir, "~> 0.5", only: [:dev], runtime: false},
+      {:credo, "~> 0.7", only: [:dev, :test]}
     ]
   end
 end
