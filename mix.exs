@@ -8,7 +8,7 @@ defmodule Ex.Mixfile do
       elixir: "~> 1.3",
       build_embedded: Mix.env == :prod,
       start_permanent: Mix.env == :prod,
-      deps: deps(),
+      deps: deps,
       preferred_cli_env: [
         "coveralls": :test,
         "coveralls.html": :test,
@@ -24,7 +24,7 @@ defmodule Ex.Mixfile do
 
   defp deps do
     [
-      {:excoveralls, "~> 0.5.7"},
+      {:excoveralls, "~> 0.5.7", only: :test},
       {:dialyxir, "~> 0.5", only: [:dev], runtime: false},
       {:credo, "~> 0.7", only: [:dev, :test]},
     ]
