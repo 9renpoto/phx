@@ -12,12 +12,14 @@ matrix:
       elixir: 1.4.2
     - otp_release: 19.0
       elixir: 1.4.2
-before_script:
-- mix deps.get
+matrix:
+  fast_finish: true
+  allow_failures:
+  - elixir: 1.4.2
 script:
 - mix credo --strict
 - mix dialyzer --halt-exit-status
-- mix do compile --warnings-as-errors, coveralls.json
+- MIX_ENV=test mix do compile --warnings-as-errors, coveralls.json
 after_success:
 - bash <(curl -s https://codecov.io/bash)
 notifications:
