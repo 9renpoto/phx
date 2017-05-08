@@ -15,7 +15,10 @@ matrix:
 matrix:
   fast_finish: true
   allow_failures:
-  - elixir: 1.4.2
+    - otp_release: 18.3
+      elixir: 1.4.2
+    - otp_release: 19.0
+      elixir: 1.4.2
 script:
 - mix credo --strict
 - mix dialyzer --halt-exit-status
