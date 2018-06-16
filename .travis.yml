@@ -1,28 +1,40 @@
-sudo: false
 language: elixir
+after_success:
+  - "bash <(curl -s https://codecov.io/bash)"
+elixir:
+  - "1.5.3"
+  - "1.6.4"
 matrix:
+  allow_failures:
+    -
+      elixir: "1.4.2"
+      otp_release: 18.3
+    -
+      elixir: "1.4.2"
+      otp_release: 19.0
   fast_finish: true
   include:
-    - otp_release: 18.3
-      elixir: 1.3.2
-      script: mix test
-    - otp_release: 19.0
-      elixir: 1.3.2
-      script: mix test
-    - otp_release: 18.3
-      elixir: 1.4.2
-    - otp_release: 19.0
-      elixir: 1.4.2
-  allow_failures:
-    - otp_release: 18.3
-      elixir: 1.4.2
-    - otp_release: 19.0
-      elixir: 1.4.2
-script:
-- mix credo --strict
-- mix dialyzer --halt-exit-status
-- MIX_ENV=test mix do compile --warnings-as-errors, coveralls.json
-after_success:
-- bash <(curl -s https://codecov.io/bash)
+    -
+      elixir: "1.3.2"
+      otp_release: 18.3
+      script: "mix test"
+    -
+      elixir: "1.3.2"
+      otp_release: 19.0
+      script: "mix test"
+    -
+      elixir: "1.4.2"
+      otp_release: 18.3
+    -
+      elixir: "1.4.2"
+      otp_release: 19.0
 notifications:
   email: false
+otp_release:
+  - "19.3"
+  - "20.2"
+script:
+  - "mix credo --strict"
+  - "mix dialyzer --halt-exit-status"
+  - "MIX_ENV=test mix do compile --warnings-as-errors, coveralls.json"
+sudo: false

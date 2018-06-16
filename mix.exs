@@ -5,16 +5,16 @@ defmodule Ex.Mixfile do
     [
       app: :ex,
       version: "0.1.0",
-      elixir: "~> 1.3",
-      build_embedded: Mix.env == :prod,
-      start_permanent: Mix.env == :prod,
+      elixir: "~> 1.6",
+      build_embedded: Mix.env() == :prod,
+      start_permanent: Mix.env() == :prod,
       deps: deps(),
       preferred_cli_env: [
-        "coveralls": :test,
+        coveralls: :test,
         "coveralls.html": :test,
-        "coveralls.json": :test,
+        "coveralls.json": :test
       ],
-      test_coverage: [tool: ExCoveralls],
+      test_coverage: [tool: ExCoveralls]
     ]
   end
 
@@ -24,9 +24,7 @@ defmodule Ex.Mixfile do
 
   defp deps do
     [
-      {:excoveralls, "~> 0.8.0"},
-      {:dialyxir, "~> 0.5", only: [:dev], runtime: false},
-      {:credo, "~> 0.7", only: [:dev, :test]},
+      {:inner_cotton, "~> 0.2", only: [:dev, :test]}
     ]
   end
 end
