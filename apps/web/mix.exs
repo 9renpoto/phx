@@ -46,7 +46,7 @@ defmodule Web.Mixfile do
       {:plug_cowboy, "~> 1.0"},
       {:ecto_sql, "~> 3.0"},
       {:gettext, "~> 0.17"},
-      {:cowboy, "~> 1.0"}
+      {:cowboy, "~> 2.0"}
     ]
   end
 
