@@ -21,4 +21,5 @@ jobs:
     - run: mix ecto.create
     - run: mix ecto.migrate
     - run: mix credo --strict
+    - run: mix dialyzer
     - run: mix test

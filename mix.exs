@@ -25,7 +25,8 @@ defmodule Ex2.MixProject do
   defp deps do
     [
       {:excoveralls, "~> 0.12", only: :test},
-      {:credo, "~> 1.1.0", only: [:dev, :test], runtime: false}
+      {:credo, "~> 1.1.0", only: [:dev, :test], runtime: false},
+      {:dialyxir, "~> 0.5", only: [:dev], runtime: false}
     ]
   end
 end
