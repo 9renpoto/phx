@@ -36,8 +36,5 @@ jobs:
       - run: mix format --check-formatted
       - run: mix dialyzer
       - run: mix credo --strict
-
-      - run: mix ecto.create
-      - run: mix ecto.migrate
-
+      - run: mix do ecto.create, ecto.migrate
       - run: mix coveralls.github
