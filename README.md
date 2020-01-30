@@ -1,27 +1,5 @@
 # Ex
 
-TODO: Add description
-
-[![Build Status](https://travis-ci.org/9renpoto/ex.svg?branch=master)](https://travis-ci.org/9renpoto/ex)
+![Elixir CI](https://github.com/9renpoto/ex/workflows/Elixir%20CI/badge.svg)
 [![CircleCI](https://circleci.com/gh/9renpoto/ex/tree/master.svg?style=svg)](https://circleci.com/gh/9renpoto/ex/tree/master)
 
-## Installation
-
-If [available in Hex](https://hex.pm/docs/publish),
-the package can be installed as:
-
-  1. Add `ex` to your list of dependencies in `mix.exs`:
-
-    ```elixir
-    def deps do
-      [{:ex, "~> 0.1.0"}]
-    end
-    ```
-
-  1. Ensure `ex` is started before your application:
-
-    ```elixir
-    def application do
-      [applications: [:ex]]
-    end
-    ```
