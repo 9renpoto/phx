@@ -60,5 +60,5 @@ config :web, Web.Repo,
   username: "postgres",
   password: "postgres",
   database: "web_dev",
-  hostname: "db",
+  hostname: System.get_env("DB_ENV_POSTGRES_HOST", "127.0.0.1"),
   pool_size: 10
