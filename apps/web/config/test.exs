@@ -15,5 +15,5 @@ config :web, Web.Repo,
   username: "postgres",
   password: "postgres",
   database: "web_test",
-  hostname: System.get_env("DB_ENV_POSTGRES_HOST"),
+  hostname: System.get_env("DB_ENV_POSTGRES_HOST", "127.0.0.1"),
   pool: Ecto.Adapters.SQL.Sandbox
