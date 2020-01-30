@@ -43,7 +43,7 @@ defmodule Web.Mixfile do
       {:postgrex, ">= 0.0.0"},
       {:phoenix_html, "~> 2.10"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
-      {:plug_cowboy, "~> 1.0"},
+      {:plug_cowboy, "~> 2.0"},
       {:ecto_sql, "~> 3.0"},
       {:gettext, "~> 0.17"},
       {:cowboy, "~> 1.0"}
