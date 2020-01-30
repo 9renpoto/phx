@@ -34,7 +34,7 @@ jobs:
       - run: mix format --check-formatted
       - run: mix credo --strict
       - run: mix do ecto.create, ecto.migrate
-      - run: mix coveralls.github
+      - run: mix coveralls.json -u
       - uses: codecov/codecov-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
