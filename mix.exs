@@ -24,7 +24,10 @@ defmodule Ex2.MixProject do
   # Run "mix help deps" for examples and options.
   defp deps do
     [
-      {:excoveralls, "~> 0.12", only: :test}
+      {:excoveralls, "~> 0.12", only: :test},
+      {:credo, "~> 1.1.0", only: [:dev, :test], runtime: false},
+      {:dialyxir, "~> 1.0.0-rc.7", only: [:dev], runtime: false},
+      {:pre_commit, "~> 0.3.4", only: :dev}
     ]
   end
 end
