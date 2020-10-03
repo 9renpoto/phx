@@ -2,6 +2,10 @@ version: '3'
 services:
   db:
     image: postgres:11-alpine
+    environment:
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - '15432:5432'
   web:
     build: .
     environment:
