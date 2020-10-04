@@ -1,0 +1,30 @@
+version: 2
+updates:
+- package-ecosystem: docker
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "20:00"
+  open-pull-requests-limit: 99
+  reviewers:
+  - 9renpoto
+  assignees:
+  - 9renpoto
+- package-ecosystem: mix
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "20:00"
+  open-pull-requests-limit: 99
+  reviewers:
+  - 9renpoto
+  assignees:
+  - 9renpoto
+- package-ecosystem: github-actions
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "20:00"
+  open-pull-requests-limit: 99
+  assignees:
+  - 9renpoto
