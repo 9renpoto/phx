@@ -13,11 +13,20 @@ jobs:
     env:
       MIX_ENV: test
 
-    steps:
-      - uses: harmon758/postgresql-action@v1
-        with:
-          postgresql version: "11" # See https://hub.docker.com/_/postgres for available versions
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_PASSWORD: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
 
+    steps:
       - uses: actions/checkout@v2
       - name: Setup elixir
         uses: actions/setup-elixir@v1
@@ -33,7 +42,10 @@ jobs:
 
       - run: mix format --check-formatted
       - run: mix credo --strict
-      - run: mix do ecto.create, ecto.migrate
+      - name: migrate
+        run: mix do ecto.create, ecto.migrate
+        env:
+          POSTGRES_PASSWORD: postgres
       - run: mix coveralls.json -u
       - uses: codecov/codecov-action@v1
         with:
