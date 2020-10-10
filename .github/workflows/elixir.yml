@@ -3,9 +3,15 @@ name: Elixir CI
 on: push
 
 jobs:
-  container-job:
+  build:
     runs-on: ubuntu-latest
-    container: node:10.18-jessie
+    name: OTP ${{matrix.otp}} / Elixir ${{matrix.elixir}}
+    strategy:
+      matrix:
+        otp: [22.2]
+        elixir: [1.9.4]
+    env:
+      MIX_ENV: test
 
     services:
       postgres:
@@ -17,15 +23,6 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
-  build:
-    runs-on: ubuntu-latest
-    name: OTP ${{matrix.otp}} / Elixir ${{matrix.elixir}}
-    strategy:
-      matrix:
-        otp: [22.2]
-        elixir: [1.9.4]
-    env:
-      MIX_ENV: test
 
     steps:
       - uses: actions/checkout@v2
