@@ -3,6 +3,20 @@ name: Elixir CI
 on: push
 
 jobs:
+  container-job:
+    runs-on: ubuntu-latest
+    container: node:10.18-jessie
+
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_PASSWORD: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
   build:
     runs-on: ubuntu-latest
     name: OTP ${{matrix.otp}} / Elixir ${{matrix.elixir}}
@@ -14,10 +28,6 @@ jobs:
       MIX_ENV: test
 
     steps:
-      - uses: harmon758/postgresql-action@v1
-        with:
-          postgresql version: "11" # See https://hub.docker.com/_/postgres for available versions
-
       - uses: actions/checkout@v2
       - name: Setup elixir
         uses: actions/setup-elixir@v1
