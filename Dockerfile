@@ -1,4 +1,4 @@
-FROM elixir:1.11.1-alpine
+FROM elixir:1.11.2-alpine
 RUN apk add -U --no-cache \
   postgresql-client postgresql-dev \
   build-base \
